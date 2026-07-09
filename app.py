@@ -204,9 +204,8 @@ with tab2:
                     if df_raw[feat].nunique() <= 10:
                         fig_f = px.bar(
                             df_raw[feat].value_counts().reset_index(),
-                            x='index', y=feat,
-                            title=f"Phân phối tần suất của biến số {feat}",
-                            labels={'index': f'Giá trị {feat}', feat: 'Số lượng'},
+                            x=feat,       # Thay vì dùng x='index', hãy truyền biến feat vào đây
+                            y='count',    # Trục y sẽ là số lượng đếm được
                             color_discrete_sequence=['#50E3C2']
                         )
                     else:
